@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackPant Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <span class="green">TRACK</span>PANT
+        </div>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+            <button id="darkMode">🌙</button>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <h1>Premium Track Pants Collection</h1>
+        <p>Comfort • Style • Performance</p>
+        <a href="#shop" class="shop-btn">Shop Now</a>
+        <div class="timer">
+
+        <h2>🔥 Flash Sale Ends In</h2>
+
+        <div id="countdown">
+            00 : 00 : 00
+        </div>
+
+    </div>
+    </section>
+
+    <section class="search-section">
+        <input type="text" placeholder="Search Track Pants...">
+        <button>Search</button>
+    </section>
+
+    <section class="categories">
+        <button data-filter="all">All</button>
+        <button data-filter="men">Men</button>
+        <button data-filter="women">Women</button>
+        <button data-filter="joggers">Joggers</button>
+        <button data-filter="sports">Sports</button>
+    </section>
+
+    <section class="featured">
+
+        <h2>🔥 Featured Collection</h2>
+
+        <div class="featured-box">
+
+            <div class="feature-card">
+                <h3>Best Sellers</h3>
+                <p>Most loved track pants by our customers.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>New Arrivals</h3>
+                <p>Fresh styles added every week.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Premium Collection</h3>
+                <p>Luxury comfort with premium fabric.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="shop" class="products">
+
+    <div class="card" data-category="men">
+        <div class="badge">SALE</div>
+        <div class="wishlist">♡</div>
+        <a href="product.html">
+            <img src="images/tt-1.jpg" alt="">
+        </a>
+        <h3>
+            <a href="product.html">Black Track Pant</a>
+        </h3>
+
+        <p class="price">₹699 <span>₹999</span></p>
+        
+        <div class="qty-box">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+        </div>
+
+        <div class="rating">⭐⭐⭐⭐☆ (4.5)</div>
+
+        <button class="add-cart"
+            data-name="Black Track Pant"
+            data-price="699">
+            Add to Cart
+        </button>
+
+    </div>
+
+    <div class="card" data-category="men">
+        <div class="badge">SALE</div>
+        <div class="wishlist">♡</div>
+        <a href="product.html">
+            <img src="images/tt-2.jpg" alt="">
+        </a>
+        <h3>
+            <a href="product.html">Grey Jogger</a>
+        </h3>
+        <p class="price">₹749 <span>₹1099</span></p>
+        <div class="qty-box">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+        </div>
+        <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+        <button class="add-cart"
+            data-name="Grey Jogger"
+            data-price="749">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="card" data-category="men">
+        <div class="badge">SALE</div>
+        <div class="wishlist">♡</div>
+        <a href="product.html">
+            <img src="images/tt-3.jpg" alt="">
+        </a>
+        <h3>
+            <a href="product.html">Navy Sports Pant</a>
+        </h3>
+        <p class="price">₹799 <span>₹1199</span></p>
+        <div class="qty-box">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+        </div>
+        <div class="rating">⭐⭐⭐⭐☆ (4.7)</div>
+        <button class="add-cart"
+            data-name="Navy Sports Pant"
+            data-price="799">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="card" data-category="men">
+        <div class="badge">SALE</div>
+        <div class="wishlist">♡</div>
+        <a href="product.html">
+            <img src="images/tt-4.jpg" alt="">
+        </a>
+        <h3>
+            <a href="product.html">Olive Green Pant</a>
+        </h3>
+        <p class="price">₹849 <span>₹1299</span></p>
+        <div class="qty-box">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+        </div>
+        <div class="rating">⭐⭐⭐⭐⭐ (4.9)</div>
+        <button class="add-cart"
+            data-name="Olive Green Pant"
+            data-price="849">
+            Add to Cart
+        </button>
+    </div>
+
+    <div class="card" data-category="men">
+        <div class="badge">SALE</div>
+        <div class="wishlist">♡</div>
+        <a href="product.html">
+            <img src="images/tt-5.jpg" alt="">
+        </a>
+        <h3>
+            <a href="product.html">Premium Gym Pant</a>
+        </h3>
+        <p class="price">₹899 <span>₹1399</span></p>
+        <div class="qty-box">
+            <button class="minus">-</button>
+            <span class="qty">1</span>
+            <button class="plus">+</button>
+        </div>
+        <div class="rating">⭐⭐⭐⭐⭐ (5.0)</div>
+        <button class="add-cart"
+            data-name="Premium Gym Pant"
+            data-price="899">
+            Add to Cart
+        </button>
+    </div>
+
+    </section>
+
+    <section class="why-us">
+
+        <h2>Why Choose Us?</h2>
+
+        <div class="why-grid">
+
+            <div>🚚 Free Delivery</div>
+
+            <div>💳 Cash on Delivery</div>
+
+            <div>🔄 Easy Returns</div>
+
+            <div>⭐ Premium Quality</div>
+
+        </div>
+
+    </section>
+
+    <section class="newsletter">
+
+        <h2>Get Exclusive Offers</h2>
+
+        <p>Subscribe and receive updates on new arrivals & discounts.</p>
+
+        <input type="email" placeholder="Enter your email">
+
+        <button>Subscribe</button>
+
+    </section>
+
+    <footer id="contact">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>TrackPant Store</h3>
+                <p>Premium Quality Track Pants for Everyday Comfort.</p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <p>Home</p>
+                <p>Shop</p>
+                <p>Contact</p>
+                <p>About</p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>📞 +91 9876543210</p>
+                <p>✉️ support@trackpantstore.com</p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="copy">
+            © 2026 TrackPant Store. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <a href="https://wa.me/919876543210" class="whatsapp" target="_blank">
+        💬
+    </a>
+
+</body>
+</html>

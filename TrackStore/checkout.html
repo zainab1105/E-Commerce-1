@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+
+    <script>
+        function placeOrder(){
+
+            alert("Your order has been placed successfully!");
+
+            localStorage.removeItem("cart");
+
+            window.location.href = "success.html";
+
+        }
+    </script>
+
+    <body>
+
+        <header>
+            <div class="logo">
+                <span class="green">TRACK</span>PANT
+            </div>
+        </header>
+
+        <section class="checkout">
+
+            <h1>Checkout</h1>
+
+            <form>
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="tel" placeholder="Phone Number" required>
+
+            <textarea placeholder="Delivery Address"></textarea>
+
+            <select>
+            <option>Cash On Delivery</option>
+            <option>UPI</option>
+            <option>Debit / Credit Card</option>
+            </select>
+
+            <button type="button" onclick="placeOrder()">
+                Place Order
+            </button>
+
+            </form>
+
+        </section>
+
+    </body>
+</html>
