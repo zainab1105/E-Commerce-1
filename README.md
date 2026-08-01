@@ -1,2 +1,2 @@
-A webpage to sell trackpants
+A webpage to sell track pants
 Live link: https://trackpantstore00.netlify.app/
