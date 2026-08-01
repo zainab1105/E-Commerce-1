@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span class="green">TRACK</span>PANT
+    </div>
+</header>
+
+<section class="invoice">
+
+    <h1>Order Invoice</h1>
+
+    <div class="invoice-box">
+
+        <h3>Order ID :
+            <span id="orderId"></span>
+        </h3>
+
+        <h3>Date :
+            <span id="date"></span>
+        </h3>
+
+        <hr>
+
+        <div id="invoiceItems"></div>
+
+        <hr>
+
+        <h2>
+            Grand Total :
+            ₹<span id="grandTotal"></span>
+        </h2>
+
+        <button onclick="window.print()">
+            🖨 Print Invoice
+        </button>
+
+    </div>
+
+</section>
+
+<script src="js/invoice.js"></script>
+
+</body>
+</html>

@@ -164,6 +164,13 @@ nav a:hover::after{
     background:#00c853;
 }
 
+.qty-box button{
+    margin-top:0 !important;
+    padding:0 !important;
+    width:45px;
+    height:45px;
+}
+
 footer{
     background:#111;
     color:white;
@@ -220,6 +227,15 @@ footer{
 
 .search-section button:hover{
     background:#009624;
+}
+
+#sort{
+    padding:15px;
+    border:2px solid #00c853;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    background:white;
 }
 
 .categories{
@@ -387,11 +403,11 @@ header{
     box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-.cart-card img{
-    width:120px;
-    height:120px;
+.card img{
+    width:100%;
+    height:320px;
     object-fit:cover;
-    border-radius:10px;
+    display:block;
 }
 
 .cart-info{
@@ -435,6 +451,34 @@ header{
 .buy-btn:hover,
 .cart-btn:hover{
     opacity:.9;
+}
+
+.coupon-box{
+    display:flex;
+    gap:10px;
+    margin:20px 0;
+}
+
+.coupon-box input{
+    flex:1;
+    padding:12px;
+    border:2px solid #00c853;
+    border-radius:8px;
+}
+
+.coupon-box button{
+    padding:12px 25px;
+    background:#00c853;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+#coupon-msg{
+    margin-top:10px;
+    font-weight:bold;
+    color:#00c853;
 }
 
 .sizes button.active{
@@ -581,6 +625,20 @@ header{
 .feature-card:hover{
     transform:translateY(-8px);
     box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.slider{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+}
+
+.slider img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .why-us{
@@ -905,6 +963,14 @@ header{
     background:#009624;
 }
 
+.success-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
 .dark{
     background:#121212;
     color:white;
@@ -1032,6 +1098,212 @@ header{
     color:red;
 }
 
+#toast{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    background:#00c853;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    font-weight:bold;
+    opacity:0;
+    transform:translateY(30px);
+    transition:.4s;
+    z-index:9999;
+}
+
+#toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/*---------------------------
+       TRACKING PAGE
+----------------------------*/
+.tracking{
+    width:90%;
+    max-width:700px;
+    margin:60px auto;
+    text-align:center;
+}
+
+.track-box{
+    margin-top:40px;
+}
+
+.step{
+    background:#e0e0e0;
+    padding:18px;
+    margin:15px 0;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.step.active{
+    background:#00c853;
+    color:white;
+}
+
+/*---------------------------
+       INVOICE
+----------------------------*/
+
+.invoice{
+    width:90%;
+    max-width:800px;
+    margin:60px auto;
+}
+
+.invoice h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.invoice-box{
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.invoice-item{
+    margin:20px 0;
+}
+
+.invoice-item h3{
+    margin-bottom:8px;
+}
+
+.invoice-box button{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    background:#00c853;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:17px;
+}
+
+.invoice-box button:hover{
+    background:#009624;
+}
+
+/*---------------------------
+       WISHLIST PAGE
+----------------------------*/
+#wishlist-items{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:30px;
+
+padding:40px;
+
+}
+
+.wishlist-card{
+
+display:flex;
+
+align-items:center;
+
+gap:30px;
+
+width:900px;
+
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.wish-img{
+
+width:220px;
+
+height:220px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+}
+
+.wish-info{
+
+flex:1;
+
+}
+
+.wish-price{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#00c853;
+
+margin:15px 0;
+
+}
+
+.wish-buttons{
+
+display:flex;
+
+gap:20px;
+
+margin-top:20px;
+
+}
+
+.add-btn{
+
+background:#00c853;
+
+color:white;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:17px;
+
+}
+
+.remove-btn{
+
+background:#111;
+
+color:white;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:10px;
+
+cursor:pointer;
+
+font-size:17px;
+
+}
+
 /*---------------------------
        MEDIA QUERIES
 ----------------------------*/
@@ -1061,6 +1333,30 @@ nav{
 
 .products{
     grid-template-columns:1fr;
+}
+
+}
+
+@media print{
+
+header,
+button,
+.whatsapp{
+display:none;
+}
+
+.invoice{
+margin:0;
+padding:0;
+}
+
+.invoice-box{
+box-shadow:none;
+width:100%;
+}
+
+body{
+background:white;
 }
 
 }

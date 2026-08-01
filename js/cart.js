@@ -36,7 +36,7 @@ else{
 
     cart.forEach((item,index)=>{
 
-        total += Number(item.price);
+        total += Number(item.price) * item.qty;
 
         cartItems.innerHTML += `
         <div class="cart-card">
@@ -47,9 +47,11 @@ else{
 
                 <h2>${item.name}</h2>
 
-                <p>₹${item.price}</p>
-
-
+                <p>
+                    Price: ₹${item.price}<br>
+                    Quantity: ${item.qty}<br>
+                    Subtotal: ₹${item.price * item.qty}
+                </p>
 
                 <button onclick="removeItem(${index})">
                     Remove
@@ -126,3 +128,36 @@ document.addEventListener("click", function(e){
     }
 
 });
+
+const applyBtn = document.getElementById("applyCoupon");
+
+if(applyBtn){
+
+    applyBtn.onclick = ()=>{
+
+        const code = document.getElementById("coupon").value;
+        const msg = document.getElementById("coupon-msg");
+
+        if(code.toUpperCase() === "TRACK10"){
+
+            let discount = total * 0.10;
+            let finalTotal = total - discount;
+
+            msg.innerHTML =
+            "✅ Coupon Applied!<br>" +
+            "Discount: ₹" + discount.toFixed(0) +
+            "<br><br><h2>Final Total : ₹" + finalTotal.toFixed(0) + "</h2>";
+
+        }
+
+        else{
+
+            msg.innerHTML = "❌ Invalid Coupon";
+
+            msg.style.color = "red";
+
+        }
+
+    };
+
+}

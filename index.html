@@ -23,6 +23,7 @@
             <a href="signup.html">Sign Up</a>
             <a href="login.html">Login</a>
             <button id="darkMode">🌙</button>
+            <a href="wishlist.html">Wishlist ❤️</a>
         </nav>
 
     </header>
@@ -45,6 +46,12 @@
     <section class="search-section">
         <input type="text" placeholder="Search Track Pants...">
         <button>Search</button>
+        <select id="sort">
+            <option value="default">Sort By</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name (A-Z)</option>
+        </select>
     </section>
 
     <section class="categories">
@@ -58,6 +65,12 @@
     <section class="featured">
 
         <h2>🔥 Featured Collection</h2>
+
+        <div class="slider">
+
+            <img id="sliderImage" src="images/tt-1.jpg">
+
+        </div>
 
         <div class="featured-box">
 
@@ -110,7 +123,7 @@
 
     </div>
 
-    <div class="card" data-category="men">
+    <div class="card" data-category="joggers">
         <div class="badge">SALE</div>
         <div class="wishlist">♡</div>
         <a href="product.html">
@@ -133,7 +146,7 @@
         </button>
     </div>
 
-    <div class="card" data-category="men">
+    <div class="card" data-category="sports">
         <div class="badge">SALE</div>
         <div class="wishlist">♡</div>
         <a href="product.html">
@@ -156,7 +169,7 @@
         </button>
     </div>
 
-    <div class="card" data-category="men">
+    <div class="card" data-category="women">
         <div class="badge">SALE</div>
         <div class="wishlist">♡</div>
         <a href="product.html">
@@ -179,7 +192,7 @@
         </button>
     </div>
 
-    <div class="card" data-category="men">
+    <div class="card" data-category="sports">
         <div class="badge">SALE</div>
         <div class="wishlist">♡</div>
         <a href="product.html">
@@ -272,6 +285,8 @@
     <a href="https://wa.me/919876543210" class="whatsapp" target="_blank">
         💬
     </a>
+
+    <div id="toast"></div>
 
 </body>
 </html>
