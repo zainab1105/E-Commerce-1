@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop - TrackPant Store</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <span class="green">TRACK</span>PANT
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">
+            Cart 🛒 <span id="cart-count">0</span>
+        </a>
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+        <button id="darkMode">🌙</button>
+        <a href="wishlist.html">
+            Wishlist ❤️ <span id="wishlist-count">0</span>
+        </a>
+    </nav>
+
+</header>
+
+<section class="shop-page">
+
+    <h1 style="text-align:center; margin-top:50px;">
+        Shop Track Pants
+    </h1>
+
+    <section class="search-section">
+        <input type="text" id="shopSearch" placeholder="Search Track Pants...">
+        <button>Search</button>
+
+        <select id="sort">
+            <option value="default">Sort By</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name</option>
+        </select>
+    </section>
+
+    <section class="categories">
+
+        <button data-filter="all">All</button>
+        <button data-filter="men">Men</button>
+        <button data-filter="women">Women</button>
+        <button data-filter="joggers">Joggers</button>
+        <button data-filter="sports">Sports</button>
+
+    </section>
+
+    <section class="products">
+
+        <div class="card" data-category="men">
+
+            <div class="badge">SALE</div>
+            <div class="wishlist">♡</div>
+
+            <a href="product.html">
+                <img src="images/tt-1.jpg" alt="Black Track Pant">
+            </a>
+
+            <h3>
+                <a href="product.html">Black Track Pant</a>
+            </h3>
+
+            <p class="price">
+                ₹699 <span>₹999</span>
+            </p>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆ (4.5)
+            </div>
+
+            <button class="add-cart"
+                data-name="Black Track Pant"
+                data-price="699">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="card" data-category="men">
+
+            <div class="badge">SALE</div>
+            <div class="wishlist">♡</div>
+
+            <a href="product.html">
+                <img src="images/tt-2.jpg" alt="Grey Jogger">
+            </a>
+
+            <h3>
+                <a href="product.html">Grey Jogger</a>
+            </h3>
+
+            <p class="price">
+                ₹749 <span>₹1099</span>
+            </p>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ (5.0)
+            </div>
+
+            <button class="add-cart"
+                data-name="Grey Jogger"
+                data-price="749">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="card" data-category="sports">
+
+            <div class="badge">SALE</div>
+            <div class="wishlist">♡</div>
+
+            <a href="product.html">
+                <img src="images/tt-3.jpg" alt="Navy Sports Pant">
+            </a>
+
+            <h3>
+                <a href="product.html">Navy Sports Pant</a>
+            </h3>
+
+            <p class="price">
+                ₹799 <span>₹1199</span>
+            </p>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐☆ (4.7)
+            </div>
+
+            <button class="add-cart"
+                data-name="Navy Sports Pant"
+                data-price="799">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="card" data-category="men">
+
+            <div class="badge">SALE</div>
+            <div class="wishlist">♡</div>
+
+            <a href="product.html">
+                <img src="images/tt-4.jpg" alt="Olive Green Pant">
+            </a>
+
+            <h3>
+                <a href="product.html">Olive Green Pant</a>
+            </h3>
+
+            <p class="price">
+                ₹849 <span>₹1299</span>
+            </p>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ (4.9)
+            </div>
+
+            <button class="add-cart"
+                data-name="Olive Green Pant"
+                data-price="849">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <div class="card" data-category="sports">
+
+            <div class="badge">SALE</div>
+            <div class="wishlist">♡</div>
+
+            <a href="product.html">
+                <img src="images/tt-5.jpg" alt="Premium Gym Pant">
+            </a>
+
+            <h3>
+                <a href="product.html">Premium Gym Pant</a>
+            </h3>
+
+            <p class="price">
+                ₹899 <span>₹1399</span>
+            </p>
+
+            <div class="qty-box">
+                <button class="minus">-</button>
+                <span class="qty">1</span>
+                <button class="plus">+</button>
+            </div>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ (5.0)
+            </div>
+
+            <button class="add-cart"
+                data-name="Premium Gym Pant"
+                data-price="899">
+                Add to Cart
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

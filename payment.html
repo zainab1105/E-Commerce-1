@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payment - TrackPant Store</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <span class="green">TRACK</span>PANT
+    </div>
+
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="shop.html">Shop</a>
+
+        <a href="wishlist.html">Wishlist ❤️</a>
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="cart.html">
+            Cart 🛒
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="signup.html">Sign Up</a>
+
+        <a href="login.html">Login</a>
+
+        <button id="darkMode">🌙</button>
+
+    </nav>
+
+</header>
+
+
+<section class="payment-page">
+
+    <div class="payment-box">
+
+        <h1>Complete Payment</h1>
+
+        <p class="demo-note">
+            🔒 Demo Payment Gateway
+        </p>
+
+        <div class="payment-method">
+            <h3>Payment Method</h3>
+
+            <p id="selectedPayment">
+                Loading...
+            </p>
+        </div>
+
+
+        <div id="upiPayment">
+
+            <h3>Pay using UPI</h3>
+
+            <div class="qr-box">
+                <div class="fake-qr">
+                    QR
+                </div>
+            </div>
+
+            <p>
+                Scan the QR code using your UPI app
+            </p>
+
+            <p class="upi-id">
+                UPI ID: trackpant@upi
+            </p>
+
+        </div>
+
+
+        <div id="cardPayment">
+
+            <h3>Card Details</h3>
+
+            <input
+                type="text"
+                id="paymentCard"
+                placeholder="Card Number"
+                maxlength="16"
+            >
+
+            <div class="card-details">
+
+                <input
+                    type="text"
+                    id="expiry"
+                    placeholder="MM/YY"
+                    maxlength="5"
+                    inputmode="numeric"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="cvv"
+                    placeholder="CVV"
+                    maxlength="3"
+                    inputmode="numeric"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <button id="payButton">
+            Pay Now
+        </button>
+
+        <p class="secure-payment">
+            🔒 Your payment information is secure
+        </p>
+
+    </div>
+
+</section>
+
+
+<div id="toast"></div>
+
+
+<script src="js/payment.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

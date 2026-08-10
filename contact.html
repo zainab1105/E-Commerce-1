@@ -11,15 +11,19 @@
 <body>
 
     <header>
-
         <div class="logo">
             <span class="green">TRACK</span>PANT
         </div>
-
         <nav>
             <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="wishlist.html">Wishlist ❤️</a>
             <a href="about.html">About</a>
-            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+            <button id="darkMode">🌙</button>
         </nav>
 
     </header>
@@ -44,15 +48,31 @@
 
             <div class="right">
 
-                <form>
+                <form id="contactForm">
 
-                    <input type="text" placeholder="Your Name" required>
+                    <input
+                        type="text"
+                        id="contactName"
+                        placeholder="Your Name"
+                        required
+                    >
 
-                    <input type="email" placeholder="Email Address" required>
+                    <input
+                        type="email"
+                        id="contactEmail"
+                        placeholder="Email Address"
+                        required
+                    >
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea
+                        id="contactMessage"
+                        placeholder="Your Message"
+                        required
+                    ></textarea>
 
-                    <button>Send Message</button>
+                    <button type="submit">
+                        Send Message
+                    </button>
 
                 </form>
 
@@ -61,6 +81,11 @@
         </div>
 
     </section>
+
+    <div id="toast"></div>
+
+    <script src="js/contact.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

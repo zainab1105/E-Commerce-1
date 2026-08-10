@@ -35,94 +35,120 @@ const hearts = document.querySelectorAll(".wishlist");
 
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-hearts.forEach(heart=>{
+const wishlistCount = document.getElementById("wishlist-count");
 
-    heart.addEventListener("click",()=>{
+if(wishlistCount){
+    wishlistCount.innerText = wishlist.length;
+}
 
-        const card = heart.parentElement;
+hearts.forEach(heart => {
+
+    const card = heart.closest(".card");
+
+    const button = card.querySelector(".add-cart");
+
+    const productName = button.dataset.name;
+
+    // Keep heart red after refresh
+    if(wishlist.some(item => item.name === productName)){
+        heart.innerHTML = "❤";
+        heart.classList.add("active");
+    }
+
+    heart.addEventListener("click", () => {
 
         const product = {
-
-            name: card.querySelector(".add-cart").dataset.name,
-
-            price: card.querySelector(".add-cart").dataset.price,
-
+            name: button.dataset.name,
+            price: button.dataset.price,
             image: card.querySelector("img").src
-
         };
 
-        const index = wishlist.findIndex(item=>item.name===product.name);
+        const index = wishlist.findIndex(
+            item => item.name === product.name
+        );
 
-        if(index==-1){
+        if(index === -1){
 
             wishlist.push(product);
 
-            heart.innerHTML="❤";
+            heart.innerHTML = "❤";
             heart.classList.add("active");
 
-        }
+        }else{
 
-        else{
+            wishlist.splice(index, 1);
 
-            wishlist.splice(index,1);
-
-            heart.innerHTML="♡";
+            heart.innerHTML = "♡";
             heart.classList.remove("active");
 
         }
 
-        localStorage.setItem("wishlist",JSON.stringify(wishlist));
+        localStorage.setItem(
+            "wishlist",
+            JSON.stringify(wishlist)
+        );
 
-    });
-
-});
-
-const search=document.querySelector(".search-section input");
-
-const cards=document.querySelectorAll(".card");
-
-search.addEventListener("keyup",()=>{
-
-    let value=search.value.toLowerCase();
-
-    cards.forEach(card=>{
-
-        let title=card.querySelector("h3").innerText.toLowerCase();
-
-        if(title.includes(value)){
-
-            card.style.display="block";
-
-        }else{
-
-            card.style.display="none";
-
+        if(wishlistCount){
+            wishlistCount.innerText = wishlist.length;
         }
 
     });
 
 });
 
-let time = 6 * 60 * 60; // 6 hours
+const search = document.querySelector(".search-section input");
+const cards = document.querySelectorAll(".card");
+
+if(search){
+
+    search.addEventListener("keyup", () => {
+
+        let value = search.value.toLowerCase();
+
+        cards.forEach(card => {
+
+            const titleElement = card.querySelector("h3");
+
+            if(!titleElement) return;
+
+            let title = titleElement.innerText.toLowerCase();
+
+            if(title.includes(value)){
+                card.style.display = "block";
+            }else{
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
 
 const countdown = document.getElementById("countdown");
 
-setInterval(() => {
+if(countdown){
 
-    let hours = Math.floor(time / 3600);
-    let minutes = Math.floor((time % 3600) / 60);
-    let seconds = time % 60;
+    let time = 6 * 60 * 60;
 
-    countdown.innerHTML =
-        String(hours).padStart(2, "0") + " : " +
-        String(minutes).padStart(2, "0") + " : " +
-        String(seconds).padStart(2, "0");
+    setInterval(() => {
 
-    if (time > 0) {
-        time--;
-    }
+        let hours = Math.floor(time / 3600);
+        let minutes = Math.floor((time % 3600) / 60);
+        let seconds = time % 60;
 
-}, 1000);
+        countdown.innerHTML =
+            String(hours).padStart(2, "0") + " : " +
+            String(minutes).padStart(2, "0") + " : " +
+            String(seconds).padStart(2, "0");
+
+        if(time > 0){
+            time--;
+        }
+
+    }, 1000);
+
+}
 
 const darkBtn = document.getElementById("darkMode");
 
@@ -281,5 +307,49 @@ i=0;
 slider.src=images[i];
 
 },2500);
+
+}
+
+const subscribeForm = document.getElementById("subscribeForm");
+
+if(subscribeForm){
+
+    subscribeForm.addEventListener("submit", function(event){
+
+        event.preventDefault();
+
+        const email = document
+            .getElementById("subscriberEmail")
+            .value
+            .trim()
+            .toLowerCase();
+
+        if(!email){
+            showToast("Please enter your email.");
+            return;
+        }
+
+        const subscribers =
+            JSON.parse(localStorage.getItem("subscribers")) || [];
+
+        if(subscribers.includes(email)){
+
+            showToast("You're already subscribed! 💚");
+
+            return;
+        }
+
+        subscribers.push(email);
+
+        localStorage.setItem(
+            "subscribers",
+            JSON.stringify(subscribers)
+        );
+
+        showToast("Subscribed successfully! 🎉");
+
+        subscribeForm.reset();
+
+    });
 
 }

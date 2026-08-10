@@ -23,7 +23,9 @@
             <a href="signup.html">Sign Up</a>
             <a href="login.html">Login</a>
             <button id="darkMode">🌙</button>
-            <a href="wishlist.html">Wishlist ❤️</a>
+            <a href="wishlist.html">
+                Wishlist ❤️ <span id="wishlist-count">0</span>
+            </a>
         </nav>
 
     </header>
@@ -241,9 +243,20 @@
 
         <p>Subscribe and receive updates on new arrivals & discounts.</p>
 
-        <input type="email" placeholder="Enter your email">
+        <form id="subscribeForm">
 
-        <button>Subscribe</button>
+            <input
+                type="email"
+                id="subscriberEmail"
+                placeholder="Enter your email"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
 
     </section>
 
@@ -258,10 +271,12 @@
 
             <div>
                 <h3>Quick Links</h3>
-                <p>Home</p>
-                <p>Shop</p>
-                <p>Contact</p>
-                <p>About</p>
+
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+                <a href="wishlist.html">Wishlist</a>
             </div>
 
             <div>

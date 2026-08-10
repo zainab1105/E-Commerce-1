@@ -7,7 +7,56 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
 
+    <style>
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: nowrap;
+        }
+
+        header nav a {
+            font-size: 16px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        header nav button {
+            font-size: 16px;
+            width: 55px;
+            height: 42px;
+            padding: 0;
+        }
+
+        header {
+            min-height: 80px;
+            padding: 0 8%;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 32px;
+            white-space: nowrap;
+        }
+    </style>
+
     <body>
+
+        <header>
+            <div class="logo">
+                <span class="green">TRACK</span>PANT
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="wishlist.html">Wishlist ❤️</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+                <a href="signup.html">Sign Up</a>
+                <a href="login.html">Login</a>
+                <button id="darkMode">🌙</button>
+            </nav>
+        </header>
 
         <div class="success-box">
 
