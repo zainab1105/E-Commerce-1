@@ -171,11 +171,35 @@ if(countdown){
 
 const darkBtn = document.getElementById("darkMode");
 
-if(darkBtn){
+if (darkBtn) {
 
+    // Apply saved theme when page loads
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        darkBtn.innerText = "Light";
+    } else {
+        document.body.classList.remove("dark");
+        darkBtn.innerText = "Dark";
+    }
+
+    // Toggle theme
     darkBtn.onclick = () => {
 
         document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+
+            localStorage.setItem("theme", "dark");
+            darkBtn.innerText = "Light";
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+            darkBtn.innerText = "Dark";
+
+        }
 
     };
 
@@ -370,5 +394,75 @@ if(subscribeForm){
         subscribeForm.reset();
 
     });
+
+}
+
+/* =========================
+   LOGIN / LOGOUT
+========================= */
+
+const nav = document.querySelector("header nav");
+
+if(nav){
+
+    const loggedIn =
+        localStorage.getItem("loggedIn") === "true";
+
+    const currentUser =
+        JSON.parse(localStorage.getItem("currentUser"));
+
+
+    const loginLink =
+        nav.querySelector('a[href="login.html"]');
+
+    const signupLink =
+        nav.querySelector('a[href="signup.html"]');
+
+
+    if(loggedIn && currentUser){
+
+        // Hide Sign Up and Login
+        if(signupLink){
+            signupLink.style.display = "none";
+        }
+
+        if(loginLink){
+            loginLink.style.display = "none";
+        }
+
+
+        // Welcome text
+        const welcome =
+            document.createElement("span");
+
+        welcome.className = "welcome-user";
+
+        welcome.innerText =
+            "Welcome, " + currentUser.name;
+
+
+        // Logout button
+        const logout =
+            document.createElement("button");
+
+        logout.id = "logoutBtn";
+
+        logout.innerText = "Logout";
+
+
+        nav.appendChild(welcome);
+        nav.appendChild(logout);
+
+
+        logout.addEventListener("click", function(){
+
+            localStorage.removeItem("loggedIn");
+            localStorage.removeItem("currentUser");
+
+            window.location.reload();
+
+        });
+
+    }
 
 }
