@@ -5,76 +5,84 @@ const grandTotal = document.getElementById("grandTotal");
 const orderId = document.getElementById("orderId");
 const date = document.getElementById("date");
 
-let total = 0;
+let subtotal = 0;
 
-
-// Keep the same Order ID after refresh
-let savedOrderId = localStorage.getItem("orderId");
-
-if (!savedOrderId) {
-
-    savedOrderId =
-        "TP" + Math.floor(100000 + Math.random() * 900000);
-
-    localStorage.setItem("orderId", savedOrderId);
-}
-
-orderId.innerText = savedOrderId;
-
+// Order ID
+orderId.innerText =
+    "TP" + Math.floor(100000 + Math.random() * 900000);
 
 // Date
-let orderDate = localStorage.getItem("orderDate");
-
-if (!orderDate) {
-
-    orderDate = new Date().toLocaleDateString();
-
-    localStorage.setItem("orderDate", orderDate);
-}
-
-date.innerText = orderDate;
+date.innerText = new Date().toLocaleDateString();
 
 
-// Invoice items
-if (cart.length === 0) {
+// Display products
+cart.forEach(item => {
 
-    invoiceItems.innerHTML = `
-        <p class="empty-invoice">
-            No items found for this order.
-        </p>
+    const itemTotal =
+        Number(item.price) * Number(item.qty);
+
+    subtotal += itemTotal;
+
+    invoiceItems.innerHTML += `
+        <div class="invoice-item">
+
+            <h3>${item.name}</h3>
+
+            <p>
+                ₹${item.price} × ${item.qty}
+            </p>
+
+            <strong>
+                ₹${itemTotal.toFixed(2)}
+            </strong>
+
+            <hr>
+
+        </div>
     `;
+});
 
-} else {
 
-    cart.forEach(item => {
+// Get coupon information
+const savedDiscount =
+    Number(localStorage.getItem("discount")) || 0;
 
-        const quantity = Number(item.qty) || 1;
-        const price = Number(item.price) || 0;
-        const subtotal = price * quantity;
+const savedFinalTotal =
+    localStorage.getItem("finalTotal");
 
-        total += subtotal;
 
-        invoiceItems.innerHTML += `
-            <div class="invoice-item">
+// Use discounted total if coupon was applied
+const finalTotal =
+    savedFinalTotal !== null
+        ? Number(savedFinalTotal)
+        : subtotal;
 
-                <div>
-                    <h3>${item.name}</h3>
 
-                    <p>
-                        ₹${price.toFixed(2)}
-                        × ${quantity}
-                    </p>
-                </div>
+// Show discount if applied
+if(savedDiscount > 0){
 
-                <strong>
-                    ₹${subtotal.toFixed(2)}
-                </strong>
+    invoiceItems.innerHTML += `
+        <div class="invoice-discount">
 
-            </div>
-        `;
+            <h3>
+                Subtotal : ₹${subtotal.toFixed(2)}
+            </h3>
 
-    });
+            <h3>
+                Discount : -₹${savedDiscount.toFixed(2)}
+            </h3>
 
+            <hr>
+
+        </div>
+    `;
 }
 
-grandTotal.innerText = total.toFixed(2);
+
+// Show final amount
+grandTotal.innerText =
+    finalTotal.toFixed(2);
+
+// Clear coupon data after invoice uses it
+localStorage.removeItem("discount");
+localStorage.removeItem("finalTotal");

@@ -71,20 +71,23 @@ else{
 
             <h3>Delivery : FREE</h3>
 
+            <div id="discountDisplay"></div>
+
             <hr>
 
-            <h1>Grand Total : ₹${total}</h1>
+            <h1 id="cartGrandTotal">
+                Grand Total : ₹${total}
+            </h1>
 
             <button id="checkoutBtn">
-            Proceed to Checkout
+                Proceed to Checkout
             </button>
 
             <button id="orderBtn">
-            Order on WhatsApp
+                Order on WhatsApp
             </button>
 
         </div>
-
     `;
 }
 
@@ -102,7 +105,7 @@ document.addEventListener("click", function(e){
 
     if(e.target.id === "orderBtn"){
 
-        showToast("WhatsApp ordering is available in the live store. 📱");
+        alert("WhatsApp ordering is not available in this demo. 📱");
 
     }
 
@@ -120,27 +123,66 @@ const applyBtn = document.getElementById("applyCoupon");
 
 if(applyBtn){
 
-    applyBtn.onclick = ()=>{
+    applyBtn.onclick = () => {
 
-        const code = document.getElementById("coupon").value;
+        const code = document
+            .getElementById("coupon")
+            .value
+            .trim()
+            .toUpperCase();
+
         const msg = document.getElementById("coupon-msg");
 
-        if(code.toUpperCase() === "TRACK10"){
+        if(code === "TRACK10"){
 
-            let discount = total * 0.10;
-            let finalTotal = total - discount;
+    const discount = total * 0.10;
+    const finalTotal = total - discount;
 
-            msg.innerHTML =
-            "✅ Coupon Applied!<br>" +
-            "Discount: ₹" + discount.toFixed(0) +
-            "<br><br><h2>Final Total : ₹" + finalTotal.toFixed(0) + "</h2>";
+    localStorage.setItem(
+        "discount",
+        discount.toFixed(2)
+    );
 
-        }
+    localStorage.setItem(
+        "finalTotal",
+        finalTotal.toFixed(2)
+    );
+
+    msg.innerHTML =
+        "✅ Coupon Applied!<br>" +
+        "Discount: ₹" + discount.toFixed(0) +
+        "<br><br><h2>Final Total : ₹" +
+        finalTotal.toFixed(0) +
+        "</h2>";
+
+    msg.style.color = "#00c853";
+
+
+    // UPDATE CART SUMMARY
+    const discountDisplay =
+        document.getElementById("discountDisplay");
+
+    const cartGrandTotal =
+        document.getElementById("cartGrandTotal");
+
+    if(discountDisplay){
+        discountDisplay.innerHTML =
+            `<h3>Discount : -₹${discount.toFixed(0)}</h3>`;
+    }
+
+    if(cartGrandTotal){
+        cartGrandTotal.innerText =
+            "Grand Total : ₹" + finalTotal.toFixed(0);
+    }
+
+}
 
         else{
 
-            msg.innerHTML = "❌ Invalid Coupon";
+            localStorage.removeItem("discount");
+            localStorage.removeItem("finalTotal");
 
+            msg.innerHTML = "❌ Invalid Coupon";
             msg.style.color = "red";
 
         }
