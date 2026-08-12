@@ -20,13 +20,32 @@ buttons.forEach(button => {
             qty: qty
         };
 
-        cart.push(product);
+        const existingProduct = cart.find(
+            item => item.name === product.name
+        );
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        if (existingProduct) {
 
-        cartCount.innerText = cart.length;
+            existingProduct.qty += product.qty;
+
+        } else {
+
+            cart.push(product);
+
+        }
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+        cartCount.innerText = cart.reduce(
+            (total, item) => total + Number(item.qty),
+            0
+        );
 
         showToast(product.name + " added to cart!");
+
     });
 
 });

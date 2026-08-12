@@ -85,9 +85,6 @@ else{
 
         </div>
 
-        <button id="orderBtn">
-            Order on WhatsApp
-        </button>
     `;
 }
 
@@ -101,21 +98,11 @@ function removeItem(index){
 
 }
 
-document.addEventListener("click",function(e){
+document.addEventListener("click", function(e){
 
-    if(e.target.id==="orderBtn"){
+    if(e.target.id === "orderBtn"){
 
-        let message="Hello, I want to order:%0A%0A";
-
-        cart.forEach(item=>{
-
-            message+=`${item.name} - ₹${item.price}%0A`;
-
-        });
-
-        message+=`%0ATotal = ₹${total}`;
-
-        window.open("https://wa.me/919876543210?text="+message);
+        showToast("WhatsApp ordering is available in the live store. 📱");
 
     }
 
