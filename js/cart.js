@@ -4,6 +4,10 @@ const cartItems = document.getElementById("cart-items");
 
 let total = 0;
 
+function getPrice(price){
+    return Number(String(price).replace(/[^\d.]/g, ""));
+}
+
 if(cart.length === 0){
 
     cartItems.innerHTML = `
@@ -36,7 +40,9 @@ else{
 
     cart.forEach((item,index)=>{
 
-        total += Number(item.price) * item.qty;
+        const price = getPrice(item.price);
+
+        total += price * item.qty;
 
         cartItems.innerHTML += `
         <div class="cart-card">
@@ -48,9 +54,9 @@ else{
                 <h2>${item.name}</h2>
 
                 <p>
-                    Price: ₹${item.price}<br>
+                    Price: ₹${price}<br>
                     Quantity: ${item.qty}<br>
-                    Subtotal: ₹${item.price * item.qty}
+                    Subtotal: ₹${price * item.qty}
                 </p>
 
                 <button onclick="removeItem(${index})">

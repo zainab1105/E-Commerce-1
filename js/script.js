@@ -438,7 +438,7 @@ if(nav){
         welcome.className = "welcome-user";
 
         welcome.innerText =
-            "Welcome, " + currentUser.name;
+        "Hi, " + currentUser.name.split(" ")[0] + " 👋";
 
 
         // Logout button

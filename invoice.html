@@ -1,64 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice</title>
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Invoice - TrackPant Store</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
 </head>
+
+
 <body>
 
+
 <header>
+
     <div class="logo">
         <span class="green">TRACK</span>PANT
     </div>
+
     <nav>
+
         <a href="index.html">Home</a>
         <a href="shop.html">Shop</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
+        <a href="cart.html"> Cart 🛒 <span id="cart-count">0</span></a>
         <a href="signup.html">Sign Up</a>
         <a href="login.html">Login</a>
         <button id="darkMode">Dark</button>
-        <a href="wishlist.html">Wishlist ❤️</a>
+        <a href="wishlist.html">
+            Wishlist ❤️
+        </a>
+        <a href="orders.html">My Orders</a>
+
     </nav>
+
 </header>
+
 
 <section class="invoice">
 
     <h1>Order Invoice</h1>
 
+
     <div class="invoice-box">
 
-        <h3>Order ID :
-            <span id="orderId"></span>
-        </h3>
 
-        <h3>Date :
-            <span id="date"></span>
-        </h3>
+        <!-- STORE / ORDER HEADER -->
 
-        <hr>
+        <div class="invoice-header">
 
-        <div id="invoiceItems"></div>
+            <div>
 
-        <hr>
+                <div class="invoice-brand">
+                    <span class="green">TRACK</span>PANT
+                </div>
 
-        <h2>
-            Grand Total :
-            ₹<span id="grandTotal"></span>
-        </h2>
+                <p>
+                    TrackPant Store
+                </p>
+
+            </div>
+
+
+            <div class="invoice-details">
+
+                <strong>Order ID:</strong>
+                <span id="orderId"></span>
+
+                <br>
+
+                <strong>Date:</strong>
+                <span id="date"></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER + PAYMENT -->
+
+        <div class="invoice-billing">
+
+
+            <div>
+
+                <h3>Billed To</h3>
+
+                <p>
+                    <strong id="customerName">
+                        Customer
+                    </strong>
+                </p>
+
+                <p id="customerPhone">
+                    -
+                </p>
+
+                <p id="customerAddress">
+                    -
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Payment</h3>
+
+                <p>
+                    Method:
+                    <strong id="paymentMethod">
+                        -
+                    </strong>
+                </p>
+
+                <p>
+                    Delivery:
+                    <strong>FREE</strong>
+                </p>
+
+                <p>
+                    Status:
+                    <strong class="invoice-status">
+                        Confirmed
+                    </strong>
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div class="invoice-items">
+
+
+            <div class="invoice-item header">
+
+                <div>
+                    Product
+                </div>
+
+                <div>
+                    Price
+                </div>
+
+                <div>
+                    Qty
+                </div>
+
+                <div>
+                    Total
+                </div>
+
+            </div>
+
+
+            <div id="invoiceItems"></div>
+
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="invoice-summary">
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong>
+                    ₹<span id="subtotal"></span>
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <strong>
+                    FREE
+                </strong>
+
+            </div>
+
+
+            <div
+                class="summary-row"
+                id="discountRow"
+                style="display:none;"
+            >
+
+                <span>
+                    Discount
+                </span>
+
+                <strong>
+                    -₹<span id="discount"></span>
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    Grand Total
+                </span>
+
+                <strong>
+                    ₹<span id="grandTotal"></span>
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="invoice-thanks">
+
+            <p>
+                Thank you for shopping with
+                <strong>TrackPant Store</strong>!<br>
+                We hope to see you again.
+            </p>
+
+            <p class="invoice-footer-note">
+                This is a computer-generated invoice and does not require a signature.
+            </p>
+
+        </div>
 
         <button onclick="window.print()">
             🖨 Print Invoice
         </button>
 
+
     </div>
 
 </section>
 
+
 <script src="js/invoice.js"></script>
 
+<script src="js/theme.js"></script>
+
+
 </body>
+
 </html>

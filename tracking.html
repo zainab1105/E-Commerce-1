@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Track Order</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <header>
+
     <div class="logo">
-            <span class="green">TRACK</span>PANT
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart 🛒 <span id="cart-count">0</span></a>
-            <a href="signup.html">Sign Up</a>
-            <a href="login.html">Login</a>
-            <button id="darkMode">Dark</button>
-            <a href="wishlist.html">Wishlist ❤️</a>
-        </nav>
+        <span class="green">TRACK</span>PANT
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+
+        <a href="cart.html">
+            Cart 🛒 <span id="cart-count">0</span>
+        </a>
+
+        <a href="signup.html">Sign Up</a>
+        <a href="login.html">Login</a>
+
+        <button id="darkMode">Dark</button>
+
+        <a href="wishlist.html">Wishlist ❤️</a>
+        <a href="orders.html">My Orders</a>
+    </nav>
+
 </header>
+
 
 <section class="tracking">
 
     <h1>Track Your Order</h1>
 
-    <div class="track-box">
+    <div class="tracking-order-info">
 
-        <div class="step active">✔ Order Confirmed</div>
+        <p>
+            Order ID:
+            <strong id="trackingOrderId">Loading...</strong>
+        </p>
 
-        <div class="step active">📦 Packed</div>
+        <p>
+            Status:
+            <strong id="trackingStatus">Loading...</strong>
+        </p>
 
-        <div class="step active">🚚 Shipped</div>
+    </div>
 
-        <div class="step">🏠 Out for Delivery</div>
 
-        <div class="step">🎉 Delivered</div>
+    <div class="track-box" id="trackingSteps">
+
+        <!-- Steps will be created by tracking.js -->
 
     </div>
 
 </section>
+
+
+<script src="js/tracking.js"></script>
+<script src="js/theme.js"></script>
 
 </body>
 </html>

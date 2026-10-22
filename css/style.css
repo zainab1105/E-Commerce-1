@@ -9,38 +9,51 @@ body{
     background:#f5f5f5;
 }
 
+/* =========================
+   HEADER / NAVBAR
+========================= */
+
 header{
     background:#111;
     color:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 8%;
-    background:#111;
+    padding:16px 5%;
+    min-height:76px;
 }
+
 
 .logo{
     font-size:28px;
-    font-weight:bold;
+    font-weight:700;
+    white-space:nowrap;
 }
+
 
 nav{
     display:flex;
-    gap:30px;
     align-items:center;
+    gap:24px;
+    flex-wrap:nowrap;
 }
+
 
 nav a{
     position:relative;
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:0;
+    font-size:16px;
+    white-space:nowrap;
     transition:.3s;
 }
+
 
 nav a.active{
     color:#00c853;
 }
+
 
 nav a::after{
     content:"";
@@ -50,11 +63,84 @@ nav a::after{
     width:0;
     height:2px;
     background:#00c853;
-    transition:0.3s;
+    transition:.3s;
 }
+
 
 nav a:hover::after{
     width:100%;
+}
+
+
+/* =========================
+   NAV COUNTS
+========================= */
+
+#cart-count,
+#wishlist-count{
+    font-size:13px;
+    margin-left:3px;
+    color:#fff;
+}
+
+
+/* =========================
+   WELCOME USER
+========================= */
+
+.welcome-user{
+    font-size:14px;
+    font-weight:500;
+    color:#ddd;
+    white-space:nowrap;
+    margin-left:4px;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+#logoutBtn{
+    border:1px solid #00c853;
+    background:transparent;
+    color:white;
+    padding:9px 16px;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:14px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+
+#logoutBtn:hover{
+    background:#00c853;
+    color:white;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+#darkMode{
+    border:1px solid #00c853;
+    background:#00c853;
+    color:white;
+    padding:9px 16px;
+    border-radius:8px;
+    font-family:inherit;
+    font-size:14px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+
+#darkMode:hover{
+    background:#009624;
 }
 
 .hero{
@@ -415,21 +501,35 @@ header{
 }
 
 .cart-card{
+    width:90%;
+    max-width:850px;
+    margin:20px auto;
+    padding:18px 22px;
+
     display:flex;
     align-items:center;
     gap:25px;
+
     background:white;
-    margin-bottom:20px;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    border-radius:14px;
+    border:1px solid #e5e5e5;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
 }
 
-.card img{
-    width:100%;
-    height:320px;
+.cart-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.cart-card img{
+    width:150px;
+    height:170px;
     object-fit:cover;
-    display:block;
+    border-radius:10px;
+    flex-shrink:0;
 }
 
 .cart-info{
@@ -437,16 +537,41 @@ header{
 }
 
 .cart-info h2{
-    margin-bottom:10px;
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.cart-info p{
+    line-height:1.8;
+    color:#555;
+    font-size:15px;
 }
 
 .cart-info button{
-    background:red;
+    margin-top:12px;
+    background:#ff2020;
     color:white;
     border:none;
-    padding:10px 20px;
-    border-radius:8px;
+    padding:9px 18px;
+    border-radius:7px;
     cursor:pointer;
+    font-family:inherit;
+    transition:.3s;
+}
+
+.cart-info button:hover{
+    background:#d90000;
+    transform:translateY(-2px);
+}
+
+body.dark .cart-card{
+    background:#1e1e1e;
+    border-color:#333;
+    box-shadow:0 5px 18px rgba(0,0,0,.3);
+}
+
+body.dark .cart-info p{
+    color:#ccc;
 }
 
 .buy-btn,
@@ -1142,133 +1267,868 @@ margin-top:30px;
     transform:translateY(0);
 }
 
-/*---------------------------
-       TRACKING PAGE
-----------------------------*/
-.tracking{
-    width:90%;
-    max-width:700px;
-    margin:60px auto;
-    text-align:center;
+/* =========================
+   TRACKING PAGE
+========================= */
+
+.tracking {
+    width: 90%;
+    max-width: 760px;
+    margin: 60px auto 90px;
 }
 
-.track-box{
-    margin-top:40px;
+
+/* =========================
+   TITLE
+========================= */
+
+.tracking > h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 30px;
 }
 
-.step{
-    background:#e0e0e0;
-    padding:18px;
-    margin:15px 0;
-    border-radius:10px;
-    font-weight:bold;
+
+/* =========================
+   ORDER INFO
+========================= */
+
+.tracking-order-info {
+
+    background: white;
+
+    padding: 18px 28px;
+
+    border-radius: 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
 }
 
-.step.active{
+
+.tracking-order-info p {
+
+    margin: 0;
+
+    color: #555;
+
+}
+
+
+.tracking-order-info strong {
+
+    color: #111;
+
+}
+
+
+/* =========================
+   TRACKING BOX
+========================= */
+
+.track-box {
+
+    background: white;
+
+    padding: 35px 40px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.1);
+
+}
+
+
+/* =========================
+   TRACKING STEP
+========================= */
+
+.tracking-step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 72px;
+
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.step-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e5e5e5;
+
+    color: #777;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    border: 2px solid #ddd;
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.step-content {
+
+    text-align: left;
+
+}
+
+
+.step-content h3 {
+
+    margin: 0 0 4px;
+
+    font-size: 18px;
+
+}
+
+
+.step-content p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    margin: 0;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================
+   COMPLETED
+========================= */
+
+.tracking-step.completed .step-icon {
+
+    background: #00c853;
+
+    border-color: #00c853;
+
+    color: white;
+
+}
+
+
+.tracking-step.completed h3 {
+
+    color: #00c853;
+
+}
+
+
+/* =========================
+   CURRENT
+========================= */
+
+.tracking-step.current .step-icon {
+
+    background: #00c853;
+
+    border-color: #00c853;
+
+    color: white;
+
+    box-shadow:
+        0 0 0 5px rgba(0,200,83,.12);
+
+}
+
+
+.tracking-step.current h3 {
+
+    color: #00c853;
+
+}
+
+
+/* =========================
+   FUTURE STEPS
+========================= */
+
+.tracking-step:not(.completed):not(.current) {
+
+    opacity: .75;
+
+}
+
+
+/* =========================
+   CONNECTING LINE
+========================= */
+
+.tracking-line {
+
+    width: 3px;
+
+    height: 28px;
+
+    background: #d6d6d6;
+
+    margin-left: 22px;
+
+}
+
+
+/* Completed connecting line */
+
+.tracking-line.completed-line {
+
+    background: #00c853;
+
+}
+
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.tracking-empty {
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+}
+
+
+.tracking-empty h2 {
+
+    margin-bottom: 10px;
+
+}
+
+
+.tracking-empty p {
+
+    color: #777;
+
+    margin-bottom: 20px;
+
+}
+
+
+.tracking-empty a {
+
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    background: #00c853;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .tracking-order-info,
+body.dark .track-box {
+
+    background: #1e1e1e;
+
+    border-color: #333;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+
+}
+
+
+body.dark .tracking-order-info p {
+
+    color: #bbb;
+
+}
+
+
+body.dark .tracking-order-info strong {
+
+    color: white;
+
+}
+
+
+body.dark .step-icon {
+
+    background: #333;
+
+    border-color: #444;
+
+    color: #aaa;
+
+}
+
+
+body.dark .tracking-step.current .step-icon {
+
+    background: #00c853;
+
+    border-color: #00c853;
+
+    color: white;
+
+}
+
+
+body.dark .step-content p {
+
+    color: #aaa;
+
+}
+
+
+body.dark .tracking-line {
+
+    background: #444;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .tracking {
+
+        width: 94%;
+
+        margin-top: 35px;
+
+    }
+
+
+    .tracking > h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .tracking-order-info {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 8px;
+
+        padding: 16px 20px;
+
+    }
+
+
+    .track-box {
+
+        padding: 28px 22px;
+
+    }
+
+
+    .tracking-step {
+
+        gap: 14px;
+
+    }
+
+
+    .step-icon {
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 18px;
+
+    }
+
+
+    .step-content h3 {
+
+        font-size: 16px;
+
+    }
+
+
+    .step-content p {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+/* =========================
+   TRACKING DARK MODE
+========================= */
+
+body.dark .track-box{
+    background:#1e1e1e;
+    box-shadow:0 8px 25px rgba(0,0,0,.35);
+}
+
+body.dark .tracking > h1{
+    color:white;
+}
+
+body.dark .tracking-step.current .step-icon{
     background:#00c853;
     color:white;
 }
 
+body.dark .tracking-step.current h3{
+    color:#00c853;
+}
+
+body.dark .step-content p{
+    color:#aaa;
+}
+
+body.dark .step-icon{
+    background:#333;
+    color:#aaa;
+}
+
 /* =========================
-   INVOICE
+   PROFESSIONAL INVOICE
 ========================= */
 
 .invoice {
-    padding: 50px 20px;
+    width: 90%;
+    max-width: 900px;
+    margin: 60px auto 80px;
 }
 
-.invoice h1 {
+.invoice > h1 {
     text-align: center;
+    font-size: 38px;
     margin-bottom: 30px;
 }
 
 .invoice-box {
-    max-width: 750px;
-    margin: auto;
     background: white;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+    padding: 45px 50px;
+    border-radius: 18px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 10px 35px rgba(0,0,0,.12);
 }
 
-.invoice-box h3 {
-    margin: 8px 0;
-}
 
-.invoice-item {
+/* =========================
+   INVOICE HEADER
+========================= */
+
+.invoice-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #ddd;
+    align-items: flex-start;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 25px;
 }
 
-.invoice-item h3 {
-    margin: 0 0 5px;
+.invoice-brand {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
-.invoice-item p {
-    margin: 0;
-    color: #666;
+.invoice-brand .green {
+    color: #00c853;
 }
 
-.invoice-box h2 {
-    text-align: right;
-    margin-top: 25px;
-}
-
-.invoice-box button {
-    display: block;
-    margin: 25px auto 0;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    background: #00c853;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.empty-invoice {
-    text-align: center;
-    padding: 30px;
+.invoice-header > div:first-child p {
+    margin-top: 5px;
     color: #777;
 }
 
+.invoice-details {
+    text-align: right;
+    line-height: 1.8;
+    color: #555;
+}
+
+
 /* =========================
-   PRINT INVOICE
+   BILLING / PAYMENT
+========================= */
+
+.invoice-billing {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    margin-bottom: 30px;
+}
+
+.invoice-billing h3 {
+    color: #00c853;
+    margin-bottom: 10px;
+}
+
+.invoice-billing p {
+    color: #555;
+    line-height: 1.65;
+    margin: 5px 0;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================
+   PRODUCT TABLE
+========================= */
+
+.invoice-items {
+    border-top: 2px solid #111;
+}
+
+.invoice-item {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) 110px 60px 120px;
+    align-items: center;
+    gap: 18px;
+    padding: 17px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.invoice-item.header {
+    background: #f5f5f5;
+    font-weight: bold;
+    border-bottom: 2px solid #111;
+}
+
+.invoice-item > div:not(:first-child) {
+    text-align: right;
+}
+
+.invoice-item .product-name {
+    font-weight: 600;
+    min-width: 0;
+}
+
+.invoice-empty {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.invoice-summary {
+    width: 350px;
+    max-width: 100%;
+    margin: 30px 0 0 auto;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    color: #555;
+}
+
+.summary-row.total {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px solid #111;
+    font-size: 22px;
+    font-weight: bold;
+    color: #00c853;
+}
+
+
+/* =========================
+   THANK YOU / FOOTER
+========================= */
+
+.invoice-thanks {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #ddd;
+    color: #666;
+    line-height: 1.7;
+}
+
+.invoice-thanks strong {
+    color: #111;
+}
+
+.invoice-footer-note {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 12px;
+    color: #888;
+}
+
+
+/* =========================
+   PRINT BUTTON
+========================= */
+
+.invoice-box > button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 13px 28px;
+    border: none;
+    border-radius: 9px;
+    background: #00c853;
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.invoice-box > button:hover {
+    background: #009624;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .invoice-box {
+    background: #1e1e1e;
+    color: white;
+    border-color: #333;
+    box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+
+body.dark .invoice-header {
+    border-color: #444;
+}
+
+body.dark .invoice-header > div:first-child p {
+    color: #aaa;
+}
+
+body.dark .invoice-details {
+    color: #ccc;
+}
+
+body.dark .invoice-billing p {
+    color: #ccc;
+}
+
+body.dark .invoice-items {
+    border-color: #444;
+}
+
+body.dark .invoice-item {
+    border-color: #333;
+}
+
+body.dark .invoice-item.header {
+    background: #292929;
+    border-color: #444;
+}
+
+body.dark .summary-row {
+    color: #ccc;
+}
+
+body.dark .summary-row.total {
+    border-color: #444;
+    color: #00c853;
+}
+
+body.dark .invoice-thanks {
+    border-color: #333;
+    color: #aaa;
+}
+
+body.dark .invoice-thanks strong {
+    color: white;
+}
+
+body.dark .invoice-footer-note {
+    color: #888;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:700px) {
+
+    .invoice {
+        width: 94%;
+    }
+
+    .invoice-box {
+        padding: 30px 20px;
+    }
+
+    .invoice-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .invoice-details {
+        text-align: left;
+    }
+
+    .invoice-billing {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .invoice-item {
+        grid-template-columns: 1.5fr 1fr 50px 1fr;
+        gap: 8px;
+        font-size: 13px;
+    }
+}
+
+
+/* =========================
+   PRINT
 ========================= */
 
 @media print {
 
-    header {
+    @page {
+        size: A4;
+        margin: 12mm;
+    }
+
+    body {
+        background: white !important;
+        color: #111 !important;
+    }
+
+    header,
+    .invoice > h1,
+    .invoice-box > button,
+    #darkMode,
+    .whatsapp,
+    #toast {
         display: none !important;
     }
 
     .invoice {
+        width: 100%;
+        max-width: none;
+        margin: 0;
         padding: 0;
     }
 
     .invoice-box {
-        max-width: none;
         width: 100%;
-        padding: 0;
-        box-shadow: none;
+        max-width: none;
+        margin: 0;
+        padding: 5mm 3mm;
+        background: white !important;
+        color: #111 !important;
+        border: none;
         border-radius: 0;
+        box-shadow: none;
     }
 
-    .invoice-box button {
-        display: none !important;
+    .invoice-header {
+        border-color: #111 !important;
     }
 
-    .invoice h1 {
-        margin-top: 0;
+    .invoice-details,
+    .invoice-billing p,
+    .summary-row,
+    .invoice-thanks,
+    .invoice-footer-note {
+        color: #555 !important;
     }
 
-    body {
-        background: white;
+    .invoice-billing h3 {
+        color: #00a844 !important;
     }
 
+    .invoice-items {
+        border-color: #111 !important;
+    }
+
+    .invoice-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border-color: #ddd !important;
+    }
+
+    .invoice-item.header {
+        background: #f2f2f2 !important;
+        border-color: #111 !important;
+    }
+
+    .summary-row.total {
+        border-color: #111 !important;
+        color: #111 !important;
+    }
+
+    .invoice-thanks {
+        border-color: #ddd !important;
+    }
+
+    .invoice-thanks strong {
+        color: #111 !important;
+    }
 }
 
 /*---------------------------
@@ -1544,60 +2404,69 @@ background:white;
     transform:translateX(-50%) translateY(0);
 }
 
-/*---------------------------
-       PAYMENT PAGE
-----------------------------*/
+/* =========================
+   PAYMENT PAGE - SELLABLE DESIGN
+========================= */
+
 .payment-page{
     min-height:75vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:60px 20px;
+    padding:50px 20px;
 }
 
 .payment-box{
     width:90%;
-    max-width:500px;
+    max-width:520px;
     background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    text-align:center;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 .payment-box h1{
-    margin-bottom:10px;
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
 }
 
 .demo-note{
+    text-align:center;
     color:#00c853;
     font-weight:600;
+    font-size:14px;
     margin-bottom:25px;
 }
 
 .payment-method{
     background:#f5f5f5;
-    padding:15px;
     border-radius:10px;
+    padding:15px 18px;
     margin-bottom:25px;
+    border:1px solid #e5e5e5;
 }
 
-.payment-box input{
-    width:100%;
-    padding:14px;
-    margin:8px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
+.payment-method h3{
+    font-size:14px;
+    color:#777;
+    margin-bottom:5px;
 }
 
-.card-row{
-    display:flex;
-    gap:10px;
+.payment-method p{
+    font-size:17px;
+    font-weight:600;
+    margin:0;
 }
 
-.card-row input{
-    width:50%;
+#upiPayment,
+#cardPayment{
+    display:none;
+}
+
+#upiPayment h3,
+#cardPayment h3{
+    margin-bottom:15px;
 }
 
 .qr-box{
@@ -1607,79 +2476,262 @@ background:white;
 }
 
 .fake-qr{
-    width:150px;
-    height:150px;
-    border:8px solid #111;
+    width:140px;
+    height:140px;
+    border:6px solid #111;
+    border-radius:8px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:30px;
+    font-size:28px;
     font-weight:bold;
+    background:white;
+}
+
+#upiPayment > p{
+    text-align:center;
+    color:#666;
+    margin:8px 0;
 }
 
 .upi-id{
-    font-weight:600;
-    margin-top:10px;
+    font-weight:600 !important;
+    color:#111 !important;
+}
+
+.payment-box input{
+    width:100%;
+    height:50px;
+    padding:0 15px;
+    margin:7px 0;
+    border:1px solid #ccc;
+    border-radius:9px;
+    font-family:inherit;
+    font-size:15px;
+    outline:none;
+    box-sizing:border-box;
+}
+
+.payment-box input:focus{
+    border-color:#00c853;
+    box-shadow:0 0 0 2px rgba(0,200,83,.1);
+}
+
+.card-details{
+    display:flex;
+    gap:12px;
+}
+
+.card-details input{
+    flex:1;
+    min-width:0;
 }
 
 #payButton{
     width:100%;
-    padding:15px;
-    margin-top:20px;
-    background:#00c853;
-    color:white;
+    height:52px;
+    margin-top:22px;
     border:none;
     border-radius:10px;
+    background:#00c853;
+    color:white;
+    font-family:inherit;
     font-size:17px;
-    font-weight:bold;
+    font-weight:600;
     cursor:pointer;
+    transition:.3s;
 }
 
 #payButton:hover{
     background:#009624;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,200,83,.2);
 }
 
 .secure-payment{
-    margin-top:20px;
+    text-align:center;
     color:#777;
-    font-size:13px;
+    font-size:12px;
+    margin-top:18px;
 }
 
-#upiPayment,
-#cardPayment{
-    display:none;
+/* =========================
+   PAYMENT SUMMARY
+========================= */
+
+.payment-summary {
+
+    margin: 25px 0;
+
+    padding: 22px;
+
+    background: #f7f7f7;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
 }
 
-#paymentDetails {
-    width: 100%;
-    margin-top: 15px;
-}
 
-#paymentDetails > input {
-    width: 100%;
-    box-sizing: border-box;
+.payment-summary h3 {
+
     margin-bottom: 15px;
+
+    font-size: 18px;
+
 }
 
-.card-row {
+
+.payment-row {
+
     display: flex;
-    gap: 15px;
-    width: 100%;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 7px 0;
+
+    color: #555;
+
 }
 
-.card-row input {
-    flex: 1;
-    min-width: 0;
-    box-sizing: border-box;
-}
 
-.card-details {
+.payment-total {
+
     display: flex;
-    gap: 12px;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 12px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #ddd;
+
+    font-size: 19px;
+
 }
 
-.card-details input {
-    flex: 1;
+
+.payment-total strong {
+    color: #00c853;
+    font-size: 21px;
+}
+
+/* =========================
+   PAYMENT PAGE DARK MODE
+========================= */
+
+body.dark .payment-page {
+    background: #111;
+    color: white;
+}
+
+body.dark .payment-box {
+    background: #1e1e1e;
+    color: white;
+    border-color: #333;
+    box-shadow: 0 10px 35px rgba(0,0,0,.4);
+}
+
+body.dark .demo-note {
+    color: #aaa;
+}
+
+body.dark .payment-method {
+    background: #292929;
+    border-color: #3a3a3a;
+}
+
+body.dark .payment-method h3 {
+    color: #aaa;
+}
+
+body.dark .payment-method p {
+    color: white;
+}
+
+body.dark .payment-summary {
+    background: #292929;
+    border-color: #3a3a3a;
+}
+
+body.dark .payment-summary h3 {
+    color: white;
+}
+
+body.dark .payment-row {
+    color: #ccc;
+}
+
+body.dark .payment-total {
+    border-color: #444;
+    color: white;
+}
+
+body.dark .payment-total strong {
+    color: #00c853;
+}
+
+body.dark #upiPayment,
+body.dark #cardPayment {
+    color: white;
+}
+
+body.dark #upiPayment p,
+body.dark .secure-payment {
+    color: #aaa;
+}
+
+body.dark #paymentCard,
+body.dark #expiry,
+body.dark #cvv {
+    background: #222;
+    color: white;
+    border-color: #444;
+}
+
+body.dark #paymentCard::placeholder,
+body.dark #expiry::placeholder,
+body.dark #cvv::placeholder {
+    color: #888;
+}
+
+body.dark .qr-box {
+    background: #222;
+    border-color: #444;
+}
+
+body.dark .fake-qr {
+    background: white;
+    color: #111;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark .payment-summary {
+    background: #292929;
+    border-color: #3a3a3a;
+}
+
+
+body.dark .payment-row {
+    color: #ccc;
+}
+
+
+body.dark .payment-total {
+    border-color: #444;
+}
+
+
+body.dark .payment-total strong {
+    color: #00c853;
 }
 
 /* =========================
@@ -1693,7 +2745,7 @@ background:white;
 
 #logoutBtn {
     border: none;
-    background: #00c853;
+    background: #9ac4ab;
     color: white;
     padding: 9px 16px;
     border-radius: 7px;
@@ -1791,4 +2843,441 @@ body.dark select {
 body.dark footer {
     background: #181818;
     color: #f5f5f5;
+}
+
+
+/* =========================
+   DARK MODE - ABOUT PAGE
+========================= */
+body.dark {
+    background: #111111;
+    color: white;
+}
+
+body.dark .about {
+    background: #111;
+}
+
+body.dark .about-box {
+    background: #1e1e1e;
+    border: 1px solid #2a2a2a;
+}
+
+body.dark .about {
+    background: #111;
+}
+
+body.dark .about h1 {
+    color: #ffffff;
+}
+
+body.dark .about > p {
+    color: #d6d6d6;
+}
+
+body.dark .about-grid {
+    background: transparent;
+}
+
+body.dark .about-box {
+    background: #1e1e1e;
+    border: 1px solid #2d2d2d;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 18px;
+}
+
+body.dark .about-box h2 {
+    color: #ffffff;
+}
+
+body.dark .about-box p {
+    color: #cccccc;
+}
+
+/* =========================
+   CART DARK MODE
+========================= */
+
+body.dark .cart-title {
+    color: white;
+}
+
+body.dark .cart-card {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #2d2d2d;
+}
+
+body.dark .cart-info h2,
+body.dark .cart-info p {
+    color: white;
+}
+
+body.dark .cart-summary {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #2d2d2d;
+}
+
+body.dark .cart-summary h2,
+body.dark .cart-summary h3 {
+    color: white;
+}
+
+body.dark .coupon-box input {
+    background: #2b2b2b;
+    color: white;
+    border-color: #00c853;
+}
+
+body.dark .coupon-box input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================
+   WISHLIST DARK MODE
+========================= */
+
+body.dark #wishlist-items {
+    color: white;
+}
+
+body.dark .wishlist-card {
+    background: #1e1e1e;
+    color: white;
+    border: 1px solid #2d2d2d;
+}
+
+body.dark .wish-info h2 {
+    color: white;
+}
+
+body.dark .wish-price {
+    color: #00c853;
+}
+
+/* =========================
+   CHECKOUT - CLEAN DESIGN
+========================= */
+
+.checkout {
+    width: 90%;
+    max-width: 650px;
+    margin: 50px auto;
+    background: #1e1e1e;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+
+.checkout h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.checkout form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.checkout input,
+.checkout textarea,
+.checkout select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #252525;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: .25s;
+}
+
+.checkout input {
+    height: 52px;
+}
+
+.checkout textarea {
+    height: 110px;
+    resize: vertical;
+}
+
+.checkout select {
+    height: 52px;
+    cursor: pointer;
+}
+
+.checkout input::placeholder,
+.checkout textarea::placeholder {
+    color: #999;
+}
+
+.checkout input:focus,
+.checkout textarea:focus,
+.checkout select:focus {
+    border-color: #00c853;
+    box-shadow: 0 0 0 2px rgba(0,200,83,.12);
+}
+
+.checkout button {
+    width: 100%;
+    height: 52px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    background: #00c853;
+    color: white;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.checkout button:hover {
+    background: #00b34a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,200,83,.2);
+}
+
+/* =========================
+   PAYMENT DARK MODE
+========================= */
+
+body.dark .payment-box {
+    background: #1e1e1e;
+    color: white;
+    box-shadow: 0 10px 35px rgba(0,0,0,.35);
+}
+
+body.dark .payment-box h1,
+body.dark .payment-box h2,
+body.dark .payment-box h3,
+body.dark .payment-box p {
+    color: white;
+}
+
+body.dark .payment-method {
+    background: #252525;
+    color: white;
+    border: 1px solid #333;
+}
+
+body.dark .payment-method h3,
+body.dark .payment-method p {
+    color: white;
+}
+
+body.dark .payment-box input {
+    background: #252525;
+    color: white;
+    border-color: #444;
+}
+
+body.dark .payment-box input::placeholder {
+    color: #999;
+}
+
+body.dark .secure-payment {
+    color: #aaa;
+}
+
+body.dark .fake-qr {
+    border-color: white;
+}
+
+.success-buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.success-btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+/* Primary button */
+.success-btn:first-child{
+    background:#00c853;
+    color:white;
+}
+
+/* Secondary buttons */
+.success-btn:nth-child(2),
+.success-btn:nth-child(3){
+    background:#111;
+    color:white;
+    border:1px solid #00c853;
+}
+
+.success-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+/* Dark mode */
+body.dark .success-btn:nth-child(2),
+body.dark .success-btn:nth-child(3){
+    background:#2a2a2a;
+    color:white;
+}
+
+/* =========================
+   MY ORDERS
+========================= */
+
+.orders-page {
+    width: 90%;
+    max-width: 900px;
+    margin: 60px auto;
+}
+
+.orders-page > h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+.order-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-top h2 {
+    margin-bottom: 5px;
+}
+
+.order-top p {
+    color: #777;
+}
+
+.order-status {
+    background: #e8f5e9;
+    color: #00a844;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.order-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+    flex-wrap: wrap;
+}
+
+.order-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.order-buttons a,
+.orders-empty a {
+    display: inline-block;
+    padding: 11px 20px;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.order-buttons a:last-child {
+    background: #111;
+}
+
+.orders-empty {
+    background: white;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+}
+
+.orders-empty p {
+    margin: 15px 0 25px;
+    color: #666;
+}
+
+
+/* DARK MODE */
+
+body.dark .order-card,
+body.dark .orders-empty {
+    background: #1e1e1e;
+    color: white;
+}
+
+body.dark .order-top {
+    border-color: #333;
+}
+
+body.dark .order-top p,
+body.dark .orders-empty p {
+    color: #aaa;
+}
+
+body.dark .order-status {
+    background: #173d24;
+    color: #00c853;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .orders-page {
+        width: 94%;
+        margin: 35px auto;
+    }
+
+    .orders-page > h1 {
+        font-size: 30px;
+    }
+
+    .order-top {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .order-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .order-buttons {
+        flex-direction: column;
+    }
+
+    .order-buttons a {
+        text-align: center;
+    }
+
 }

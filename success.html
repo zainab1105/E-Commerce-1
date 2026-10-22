@@ -23,6 +23,7 @@
                 <a href="login.html">Login</a>
                 <button id="darkMode">Dark</button>
                 <a href="wishlist.html">Wishlist ❤️</a>
+                <a href="orders.html">My Orders</a>
             </nav>
         </header>
 
@@ -45,6 +46,120 @@
             </div>
 
         </div>
+
+        <script src="js/theme.js"></script>
+
+        <script>
+            // =========================
+            // SAVE COMPLETED ORDER
+            // =========================
+
+            const cart =
+                JSON.parse(localStorage.getItem("cart")) || [];
+
+            const currentUser =
+                JSON.parse(localStorage.getItem("currentUser"));
+
+            const orderId =
+                localStorage.getItem("orderId");
+
+            const orderDate =
+                localStorage.getItem("orderDate");
+
+            const customerName =
+                localStorage.getItem("customerName") || "Customer";
+
+            const customerPhone =
+                localStorage.getItem("customerPhone") || "";
+
+            const customerAddress =
+                localStorage.getItem("customerAddress") || "";
+
+            const paymentMethod =
+                localStorage.getItem("paymentMethod") || "";
+
+            const discount =
+                Number(localStorage.getItem("discount")) || 0;
+
+
+            // =========================
+            // CREATE ORDER OBJECT
+            // =========================
+
+            const newOrder = {
+
+                orderId: orderId,
+
+                orderDate: orderDate,
+
+                customerName: customerName,
+
+                customerPhone: customerPhone,
+
+                customerAddress: customerAddress,
+
+                customerEmail:
+                    currentUser ? currentUser.email : "",
+
+                paymentMethod: paymentMethod,
+
+                items: cart,
+
+                discount: discount
+
+            };
+
+
+            // =========================
+            // SAVE TO MY ORDERS
+            // =========================
+
+            let orders =
+                JSON.parse(localStorage.getItem("orders")) || [];
+
+
+            // Prevent duplicate order
+            const alreadyExists =
+                orders.some(order =>
+                    order.orderId === orderId
+                );
+
+
+            if (!alreadyExists) {
+
+                orders.push(newOrder);
+
+                localStorage.setItem(
+                    "orders",
+                    JSON.stringify(orders)
+                );
+
+            }
+
+
+            // =========================
+            // SAVE CURRENT ORDER
+            // FOR INVOICE
+            // =========================
+
+            localStorage.setItem(
+                "currentOrder",
+                JSON.stringify(newOrder)
+            );
+
+
+            // =========================
+            // CLEAR CART DATA
+            // AFTER ORDER IS SAVED
+            // =========================
+
+            localStorage.removeItem("cart");
+
+            localStorage.removeItem("discount");
+
+            localStorage.removeItem("finalTotal");
+
+        </script>
 
     </body>
 </html>
